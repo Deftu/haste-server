@@ -1,10 +1,8 @@
 <html>
-
 	<head>
-
-		<title>hastebin</title>
+		<title>Hastebin</title>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="solarized_dark.css"/>
+		<link rel="stylesheet" type="text/css" href="deftu_scheme.css"/>
 		<link rel="stylesheet" type="text/css" href="application.css"/>
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -31,7 +29,7 @@
 			}, 1000);
 			// Construct app and load initial path
 			$(function() {
-				app = new haste('hastebin', { twitter: true });
+				app = new haste('Hastebin', { twitter: true });
 				handlePop({ target: window });
 			});
 		</script>
@@ -41,6 +39,32 @@
 	<body>
 		<ul id="messages"></ul>
 
+		<div class="container">
+			<div class="content">
+				<div class="line-nums"></div>
+				<pre id="box" style="display:none;" class="hljs" tabindex="0"><code></code></pre>
+				<textarea spellcheck="false" style="display:none;"></textarea>
+			</div>
+		</div>
+
+		<footer>
+			<div class="branding">
+				<h1 class="brand-name"><span class="brand-emphasis">Haste</span>bin</h1>
+			</div>
+
+			<span class="action-shortcut"></span>
+
+			<div class="actions">
+				<button class="copylink function"><span>Copy Link</span></button>
+				<button class="copy function"><span>Copy</span></button>
+				<button class="new function"><span>New</span></button>
+				<button class="save function"><span>Save</span></button>
+				<button class="duplicate function"><span>Duplicate</span></button>
+				<button class="raw function"><span>Raw</span></button>
+			</div>
+		</footer>
+
+		<!--
 		<div id="key">
 		  <div id="pointer" style="display:none;"></div>
 			<div id="box1">
@@ -58,11 +82,7 @@
 				<div class="shortcut"></div>
 			</div>
 		</div>
-
-		<div id="linenos"></div>
-		<pre id="box" style="display:none;" class="hljs" tabindex="0"><code></code></pre>
-		<textarea spellcheck="false" style="display:none;"></textarea>
-
+		-->
 	</body>
 
 </html>

@@ -1,0 +1,15 @@
+{
+    "verbose": true,
+    "ext": "js,css,html",
+    "delay": 5,
+    "watch": [
+        "static"
+    ],
+    "ignore": [
+        "node_modules",
+        "data",
+        "lib",
+        "test",
+        "static/*.min.js"
+    ]
+}
