@@ -40,7 +40,7 @@ textarea {
 }
 
 .container {
-	height: max-content;
+	height: fit-content;
 	max-height: max-content;
 	min-height: 100%;
 	padding-bottom: calc(80px + (15px * 2));

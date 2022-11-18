@@ -117,7 +117,7 @@ haste.prototype.showMessage = function(msg, cls) {
 
 // Show the full key
 haste.prototype.fullKey = function() {
-  this.configureKey(['new', 'save', 'duplicate', 'raw']);
+  this.configureKey(['new', 'save']);
 };
 
 haste.prototype.docKey = function() {
@@ -309,7 +309,7 @@ haste.prototype.configureButtons = function() {
       }
     },
     {
-      $where: $('actions .save'),
+      $where: $('.actions .save'),
       label: 'Save',
       shortcutDescription: 'CTRL + S',
       shortcut: function(evt) {
@@ -361,8 +361,10 @@ haste.prototype.configureButton = function(options) {
   });
   // Show the label
   options.$where.mouseenter(function() {
-    $('footer .action-shortcut').text(options.shortcutDescription || '');
-    $('footer .action-shortcut').show();
+    if (!options.clickDisabled && $(this).hasClass('enabled')) {
+      $('footer .action-shortcut').text(options.shortcutDescription || '');
+      $('footer .action-shortcut').show();
+    }
   });
   // Hide the label
   options.$where.mouseleave(function() {
