@@ -278,9 +278,9 @@ haste.prototype.configureButtons = function() {
     {
       $where: $('.actions .copylink'),
       label: 'Copy Link',
-      shortcutDescription: 'CTRL + H',
+      shortcutDescription: 'CTRL + SHIFT + H',
       shortcut: function(evt) {
-        return evt.ctrlKey && (evt.keyCode === 72 || evt.keyCode === 104);
+        return evt.ctrlKey && evt.shiftKey && (evt.keyCode === 72 || evt.keyCode === 104);
       },
       action: function() {
         _this.copyDocumentLink();
@@ -289,9 +289,9 @@ haste.prototype.configureButtons = function() {
     {
       $where: $('.actions .copy'),
       label: 'Copy',
-      shortcutDescription: 'CTRL + C',
+      shortcutDescription: 'CTRL + SHIFT + X',
       shortcut: function(evt) {
-        return evt.ctrlKey && (evt.keyCode === 67 || evt.keyCode === 99);
+        return evt.ctrlKey && evt.shiftKey && (evt.keyCode === 88 || evt.keyCode === 120);
       },
       action: function() {
         _this.copyDocument();
@@ -311,9 +311,9 @@ haste.prototype.configureButtons = function() {
     {
       $where: $('.actions .save'),
       label: 'Save',
-      shortcutDescription: 'CTRL + S',
+      shortcutDescription: 'CTRL + SHIFT + S',
       shortcut: function(evt) {
-        return evt.ctrlKey && (evt.keyCode === 83 || evt.keyCode === 115);
+        return evt.ctrlKey && evt.shiftKey && (evt.keyCode === 83 || evt.keyCode === 115);
       },
       action: function() {
         if (_this.$textarea.val().replace(/^\s+|\s+$/g, '') !== '') {
@@ -335,9 +335,9 @@ haste.prototype.configureButtons = function() {
     {
       $where: $('.actions .raw'),
       label: 'Raw',
-      shortcutDescription: 'CTRL + SHIFT + R',
+      shortcutDescription: 'CTRL + Y',
       shortcut: function(evt) {
-        return evt.ctrlKey && evt.shiftKey && (evt.keyCode === 82 || evt.keyCode === 114);
+        return evt.ctrlKey && (evt.keyCode === 89 || evt.keyCode === 121);
       },
       action: function() {
         window.location.href = '/raw/' + _this.doc.key;
@@ -379,7 +379,7 @@ haste.prototype.configureShortcuts = function() {
     var button;
     for (var i = 0 ; i < _this.buttons.length; i++) {
       button = _this.buttons[i];
-      if (button.shortcut && button.shortcut(evt)) {
+      if (!options.clickDisabled && $(this).hasClass('enabled') && button.shortcut && button.shortcut(evt)) {
         evt.preventDefault();
         button.action();
         return;
