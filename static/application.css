@@ -31,7 +31,6 @@ textarea {
     color: #FDFBF9;
 	padding: 0px;
 	width: 100%;
-	height: 100%;
 	font-family: monospace;
 	outline: none;
 	resize: none;
@@ -41,16 +40,12 @@ textarea {
 }
 
 .container {
-	height: fit-content;
-	max-height: max-content;
-	min-height: 100%;
-	padding-bottom: calc(80px + (15px * 2));
+	height: auto;
 }
 
 .content {
 	padding: 20px 50px;
-	height: fit-content;
-	min-height: max-content;
+	margin-bottom: calc(80px + (15px * 2));
 }
 
 .line-nums {
@@ -70,8 +65,6 @@ textarea {
 	padding: 0px;
 	margin: 0px;
 	width: 100%;
-	height: fit-content;
-	max-height: max-content;
 	border: 0px;
 	outline: none;
 	font-size: 15px;
